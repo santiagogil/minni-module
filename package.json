@@ -1,0 +1,26 @@
+{
+  "name": "minni-module",
+  "version": "1.0.0",
+  "description": "Minimal npm module scaffolding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiagogil/minni-module.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santiagogil/minni-module/issues"
+  },
+  "homepage": "https://github.com/santiagogil/minni-module#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "glob": "^7.1.2",
+    "js-yaml": "^3.10.0",
+    "mustache": "^2.3.0"
+  }
+}
