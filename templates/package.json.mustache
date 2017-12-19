@@ -1,30 +1,31 @@
 {
-  "name": "{{project-name}}",
+  "name": "{{name}}",
   "version": "0.1.0",
-  "description": "{{project-description}}",
+  "description": "{{description}}",
   "main": "index.js",
   "scripts": {
-    "test": "standard && tape test.js && nsp check",
+    "test": "standard && nsp check && tape test.js",
     "commit": "git-cz",
     "setup": "npm i && semantic-release-cli setup"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{github-user}}/{{project-name}}.git"
+    "url": "git+https://github.com/{{user}}/{{name}}.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/{{github-user}}/{{project-name}}/issues"
+    "url": "https://github.com/{{user}}/{{name}}/issues"
   },
-  "homepage": "https://github.com/{{github-user}}/{{project-name}}#readme",
+  "homepage": "https://github.com/{{user}}/{{name}}#readme",
   "devDependencies": {
     "tape": "*",
     "standard": "*",
+    "nsp": "*",
     "commitizen": "*",
     "cz-conventional-changelog": "*",
-    "semantic-release-cli": "*",
+    "semantic-release-cli": "*"
   },
   "config": {
     "commitizen": {
