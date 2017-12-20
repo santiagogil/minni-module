@@ -19,36 +19,29 @@ test('minni-module', function (t) {
     sameDir()
   })
   function sameDir () {
-    childProcess.exec('node ./minni-module.js --name testdir', function (err, stdout, stderror) {
-      if (err) noOps()
-      return t.equal(JSON.parse(stderror).code, 'EEXIST', 'It should exit with error if directory already exist')
-    })
-  }
+    var out = function () {childProcess.execSync('node ./minni-module.js --name testdir')}
+    t.throws(out, Error, 'It should exit with error if directory already exist')
+    }
   displayHelp()
   function displayHelp () {
-    childProcess.exec('node ./minni-module.js --help', function (err, stdout, stderror) {
-      if (err) console.error(err)
-      return t.equal(stdout, mm.help, 'It should display help')
-    })
-  }
+    var out = childProcess.execSync('node ./minni-module.js --help').toString()
+      return t.equal(out, mm.help, 'It should display help')
+    }
   displayConfig()
   function displayConfig () {
     rimraf(testdir, console.error)
     config.clear()
-    childProcess.exec('node ./minni-module.js --config', function (err, stdout, stderror) {
-      if (err) noOps()
-      return t.equal(stdout, '{}', 'It should display config')
-    })
-  }
+    var out = childProcess.execSync('node ./minni-module.js --config').toString()
+      return t.equal(out, '{}', 'It should display config')
+    }
   updateConfig()
   function updateConfig () {
     rimraf(testdir, console.error)
     config.clear()
-    childProcess.exec('node ./minni-module.js --name testdir --author tester', function (err, stdout, stderror) {
-      if (err) noOps()
-      return t.equal(stdout, '{"author":"tester","name":"testdir"}', 'It should update config')
-    })
+    var out = function () {childProcess.execSync('node ./minni-module.js --name testdir --author tester')}
+    t.throws(out, '{"author":"tester","name":"testdir"}', 'It should update config')
+    }
   }
-})
+)
 function noOps () {
 }

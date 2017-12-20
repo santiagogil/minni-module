@@ -36,16 +36,12 @@ function build (argv) {
     process.exit(0)
   }
   if (argv.config) {
-    process.stdout.write(JSON.stringify(makeConf(argv)))
+    var val = JSON.stringify(makeConf(argv))
+    process.stdout.write(val)
     process.exit(0)
   }
   if (!argv.name) {
-    throw new Error(`
-    Please provide a name for your module.
-    Example:
-
-      'minni-module --name your-module-name'
-    `)
+    throw new Error(help)
   }
   makedir(makeConf(argv))
 }
@@ -64,8 +60,7 @@ function makeConf (argv) {
 function makedir (values) {
   fs.mkdir(path.join(__dirname, '/', values.name), function (err) {
     if (err) {
-      process.stderr.write(JSON.stringify(err))
-      return process.exit(1)
+      throw err
     }
     process.stdout.write(JSON.stringify(values))
     makemodule(values)
