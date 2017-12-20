@@ -1,4 +1,6 @@
 # minni-module
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/santiagogil/minni-module.svg)](https://greenkeeper.io/)
 Minimal npm module scaffolding
 
 ## Work in progress
