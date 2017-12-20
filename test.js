@@ -19,29 +19,29 @@ test('minni-module', function (t) {
     sameDir()
   })
   function sameDir () {
-    var out = function () {childProcess.execSync('node ./minni-module.js --name testdir')}
+    var out = function () { childProcess.execSync('node ./minni-module.js --name testdir') }
     t.throws(out, Error, 'It should exit with error if directory already exist')
-    }
+  }
   displayHelp()
   function displayHelp () {
     var out = childProcess.execSync('node ./minni-module.js --help').toString()
-      return t.equal(out, mm.help, 'It should display help')
-    }
+    return t.equal(out, mm.help, 'It should display help')
+  }
   displayConfig()
   function displayConfig () {
     rimraf(testdir, console.error)
     config.clear()
     var out = childProcess.execSync('node ./minni-module.js --config').toString()
-      return t.equal(out, '{}', 'It should display config')
-    }
+    return t.equal(out, '{}', 'It should display config')
+  }
   updateConfig()
   function updateConfig () {
     rimraf(testdir, console.error)
     config.clear()
-    var out = function () {childProcess.execSync('node ./minni-module.js --name testdir --author tester')}
+    var out = function () { childProcess.execSync('node ./minni-module.js --name testdir --author tester') }
     t.throws(out, '{"author":"tester","name":"testdir"}', 'It should update config')
-    }
   }
+}
 )
 function noOps () {
 }
