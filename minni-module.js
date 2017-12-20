@@ -3,17 +3,19 @@ var mm = require('./index')
 
 var opts = {
   string: ['author', 'email', 'user', 'name', 'description'],
+  boolean: ['help', 'config'],
   alias: {
     author: 'a',
     email: 'e',
     user: 'u',
     name: 'n',
-    description: 'd'
+    description: 'd',
+    help: 'h',
+    config: 'c'
   },
   unknown: function (param) {
     console.error('unknown arg: ', param)
-    console.error(mm.help)
-    process.exit(1)
+    throw new Error(mm.help)
   }
 }
 var argv = parseArgs(process.argv.slice(2), opts)

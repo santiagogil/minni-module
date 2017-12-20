@@ -4,6 +4,7 @@ var mustache = require('mustache')
 var path = require('path')
 var Conf = require('conf')
 
+var config = new Conf()
 var unknown = `
 Usage: minni-module [OPTIONS] <module name>
 Try 'minni-module --help' for more information.
@@ -30,46 +31,55 @@ in any invocation.
 `
 
 function build (argv) {
-  if (!argv.name) {
-    console.error(`
-    Please provide a name for your module.
-    Example:
-
-      'minni-module --name your-module-name'
-    `)
-    return process.exit(1)
+  if (argv.help) {
+    process.stdout.write(help)
+    process.exit(0)
   }
-  var config = new Conf()
+  if (argv.config) {
+    var val = JSON.stringify(makeConf(argv))
+    process.stdout.write(val)
+    process.exit(0)
+  }
+  if (!argv.name) {
+    throw new Error(help)
+  }
+  makedir(makeConf(argv))
+}
+module.exports = {unknown: unknown, help: help, build: build}
+function makeConf (argv) {
   config.set({
-    'author': argv.author,
-    'email': argv.email,
-    'user': argv.user
+    'author': argv.author || config.get('author'),
+    'email': argv.email || config.get('email'),
+    'user': argv.user || config.get('user')
   })
   var values = config.store
   values.name = argv.name
   values.description = argv.description
-  console.log(values)
-  fs.mkdir(process.cwd() + '/' + values.name, function (err) {
+  return values
+}
+function makedir (values) {
+  fs.mkdir(path.join(__dirname, '/', values.name), function (err) {
     if (err) {
-      console.log('Directory already exist')
-      console.error(err)
-      return process.exit(1)
+      throw err
     }
+    process.stdout.write(JSON.stringify(values))
+    makemodule(values)
   })
-
+}
+function makemodule (values) {
   glob(path.join(__dirname, '/templates/*mustache'), function (err, files) {
-    if (err) return err
+    if (err) process.stderr.write(err)
     files.forEach(function (file) {
       fs.readFile(file, 'utf8', function (err, template) {
-        if (err) return err
-        fs.writeFile(values.name + '/' + path.basename(file, '.mustache'), mustache.render(template, values), 'utf8', console.log)
+        if (err) process.stderr.write(err)
+        fs.writeFile(values.name + '/' + path.basename(file, '.mustache'), mustache.render(template, values), 'utf8', function (err) { if (err) process.stderr.write(err) })
       })
     })
   })
 
   glob(path.join(__dirname, '/templates/!(*mustache)'), function (err, files) {
     if (err) {
-      console.error(err)
+      process.stderr.write(err)
       process.exit(1)
     }
     files.forEach(function (file) {
@@ -77,4 +87,3 @@ function build (argv) {
     })
   })
 }
-module.exports = {unknown: unknown, help: help, build: build}
