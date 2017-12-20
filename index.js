@@ -55,6 +55,7 @@ function makeConf (argv) {
   var values = config.store
   values.name = argv.name
   values.description = argv.description
+  values.year = new Date().getFullYear()
   return values
 }
 function makedir (values) {

@@ -32,7 +32,7 @@ test('minni-module', function (t) {
     rimraf(testdir, console.error)
     config.clear()
     var out = childProcess.execSync('node ./minni-module.js --config').toString()
-    return t.equal(out, '{}', 'It should display config')
+    return t.equal(out, `{"year":${new Date().getFullYear()}}`, 'It should display config')
   }
   updateConfig()
   function updateConfig () {
