@@ -4,7 +4,7 @@
   "description": "{{description}}",
   "main": "index.js",
   "scripts": {
-    "test": "standard && nsp check && tape test.js",
+    "test": "standard && nsp check && istanbul cover tape test.js",
     "commit": "git-cz",
     "setup": "npm i && semantic-release-cli setup"
   },
@@ -25,7 +25,8 @@
     "nsp": "*",
     "commitizen": "*",
     "cz-conventional-changelog": "*",
-    "semantic-release-cli": "*"
+    "semantic-release-cli": "*",
+    "istambul": "*"
   },
   "config": {
     "commitizen": {
