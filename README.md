@@ -1,10 +1,34 @@
 # minni-module
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/santiagogil/minni-module.svg)](https://greenkeeper.io/)
+
 Minimal npm module scaffolding
 
 ## Work in progress
 Not redy for usage yet.
+
+## Usage
+
+```
+  Example: 
+
+    minni-module --name myModuleName --author myself 
+
+  will create a new folder in current directory named 'myModuleName'
+  and set myself as author in config file as a parammeter to parse templates.
+
+
+  Options:
+    -a  --author      Author name (package.json)                  [conf]
+    -e  --email       email (code-of-conduct.md)                  [conf]
+    -u  --user        Github user (urls in package.json)          [conf]
+    -n  --name        Name of the module (folder, package.json)
+    -d  --description Short description (README.md, package.json)
+
+  All options marked as '[conf]' will be saved for future usage.
+  You will see them in order to confirm on every use and can be overwriten
+  in any invocation.
+```
 
 ## What it does
 
