@@ -7,6 +7,7 @@
   "bin": "./minni-module.js",
   "scripts": {
     "test": "standard && nsp check && istanbul cover tape test.js",
+    "lint-prose": "write-good $(bash -c 'echo {*,templates/*}.md')",
     "commit": "git-cz",
     "setup": "npm i && semantic-release-cli setup",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -23,13 +24,14 @@
   },
   "homepage": "https://github.com/santiagogil/minni-module#readme",
   "devDependencies": {
-    "nsp": "^3.1.0",
-    "standard": "^10.0.3",
-    "tape": "^4.8.0",
     "commitizen": "*",
     "cz-conventional-changelog": "*",
     "istanbul": "^0.4.5",
+    "nsp": "^3.1.0",
     "semantic-release-cli": "*",
+    "standard": "^10.0.3",
+    "tape": "^4.8.0",
+    "write-good": "^0.11.3",
     "semantic-release": "^11.0.2"
   },
   "config": {
