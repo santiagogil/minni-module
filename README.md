@@ -83,7 +83,16 @@ Inform contributors and users about your workflow with issues and pull request t
 
 ### Organize
 
-Create a healthy community around your work by clearly establishing a govenance model (open open-source) and  a code of conduct (contributor covennant).
+Create a healthy community around your work by establishing a govenance model (open open-source) and  a code of conduct (contributor covennant).
+
+
+### Write
+
+Use write-good to to lint documentation.
+
+```
+$ npm run lint-prose
+```
 
 
 ### Certify
@@ -91,3 +100,4 @@ Create a healthy community around your work by clearly establishing a govenance 
 Your minni-module based module is almost ready to certify CII Best Practices.
 
 Go get your badge to proudly show in the readme.
+
