@@ -30,7 +30,7 @@
     "cz-conventional-changelog": "*",
     "istanbul": "^0.4.5",
     "semantic-release-cli": "*",
-    "semantic-release": "^8.2.0"
+    "semantic-release": "^11.0.2"
   },
   "config": {
     "commitizen": {
