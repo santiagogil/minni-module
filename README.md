@@ -57,32 +57,33 @@ Let's make high quality our default.
 
 ### Static analysis
 
-Check code for common mistakes and style on every commit with standard.
+Check code for common mistakes and style on every commit with [standard](https://standardjs.com)
+.
 
 
 ## Security
 
-Audit your dependencies for known vulnerabilities on every commit using nsp.
+Audit your dependencies for known vulnerabilities on every commit using [nsp](https://nodesecurity.io).
 
 
 ### Tests
 
-Write uncomplicated tests with tape and run your test suit on every commit.
+Write uncomplicated tests with [tape](https://www.npmjs.com/package/tape) and run your test suit on every commit.
 
 
 ### Test coverage
 
-Keep an eye on test coverage with istambul.
+Keep an eye on test coverage with [istanbul](https://www.npmjs.com/package/istanbul).
 
 
 ### Release
 
-Rekease often and reliably with commitizen and semantic release.
+Rekease often and reliably with [commitizen](http://commitizen.github.io/cz-cli/) and [semantic release](https://www.npmjs.com/package/semantic-release).
 
 
 ### Update
 
-With all this in place it's really easy to enable greenkeeper to let it keep dependencies up to date for you.
+With all this in place it's really easy to enable [greenkeeper](https://greenkeeper.io/) to let it keep dependencies up to date for you.
 
 
 ### Colaborate
@@ -92,12 +93,12 @@ Inform contributors and users about your workflow with issues and pull request t
 
 ### Organize
 
-Create a healthy community around your work by establishing a govenance model (open open-source) and  a code of conduct (contributor covennant).
+Create a healthy community around your work by establishing a govenance model ([open open-source](http://openopensource.org/)) and  a code of conduct ([contributor covennant](https://www.contributor-covenant.org/)).
 
 
 ### Write
 
-Use write-good to to lint documentation.
+Use [write-good](https://www.npmjs.com/package/write-good) to to lint documentation.
 
 ```
 $ npm run lint-prose
@@ -106,7 +107,7 @@ $ npm run lint-prose
 
 ### Certify
 
-Your minni-module based module is almost ready to certify CII Best Practices.
+Your minni-module based module is almost ready to certify [CII Best Practices](https://bestpractices.coreinfrastructure.org/).
 
 Go get your badge to proudly show in the readme.
 
