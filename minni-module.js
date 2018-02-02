@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var parseArgs = require('minimist')
 var mm = require('./index')
 
