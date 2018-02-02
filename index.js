@@ -59,7 +59,7 @@ function makeConf (argv) {
   return values
 }
 function makedir (values) {
-  fs.mkdir(path.join(__dirname, '/', values.name), function (err) {
+  fs.mkdir(path.join(process.cwd(), '/', values.name), function (err) {
     if (err) {
       throw err
     }
