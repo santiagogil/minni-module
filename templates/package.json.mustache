@@ -6,7 +6,8 @@
   "scripts": {
     "test": "standard && nsp check && istanbul cover tape test.js",
     "commit": "git-cz",
-    "setup": "npm i && semantic-release-cli setup"
+    "setup": "npm i && semantic-release-cli setup",
+    "lint-prose": "write-good *.md"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
     "commitizen": "*",
     "cz-conventional-changelog": "*",
     "semantic-release-cli": "*",
-    "istanbul": "*"
+    "istanbul": "*",
+    "write-good": "*"
   },
   "config": {
     "commitizen": {
