@@ -83,7 +83,6 @@ function makemodule (values) {
       process.stderr.write(err)
       process.exit(1)
     }
-    console.log(files)
     files.forEach(function (file) {
       fs.createReadStream(file, 'utf8').pipe(fs.createWriteStream(values.name + '/' + path.basename(file), 'utf8'))
     })
