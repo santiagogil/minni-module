@@ -78,11 +78,12 @@ function makemodule (values) {
     })
   })
 
-  glob(path.join(__dirname, '/templates/.?!(*mustache)'), function (err, files) {
+  glob('templates/!(*mustache)', {dot: true}, function (err, files) {
     if (err) {
       process.stderr.write(err)
       process.exit(1)
     }
+    console.log(files)
     files.forEach(function (file) {
       fs.createReadStream(file, 'utf8').pipe(fs.createWriteStream(values.name + '/' + path.basename(file), 'utf8'))
     })
