@@ -78,7 +78,7 @@ function makemodule (values) {
     })
   })
 
-  glob(path.join(__dirname, '/templates/!(*mustache)'), function (err, files) {
+  glob(path.join(__dirname, '/templates/.?!(*mustache)'), function (err, files) {
     if (err) {
       process.stderr.write(err)
       process.exit(1)
