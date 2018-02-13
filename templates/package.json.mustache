@@ -4,7 +4,7 @@
   "description": "{{description}}",
   "main": "index.js",
   "scripts": {
-    "test": "standard && nsp check && istanbul cover tape test.js",
+    "test": "standard && nsp check && istanbul cover tape test.js && codecov",
     "commit": "git-cz",
     "setup": "npm i && semantic-release-cli setup",
     "lint-prose": "write-good *.md"
