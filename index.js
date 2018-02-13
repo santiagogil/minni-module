@@ -68,7 +68,7 @@ function makedir (values) {
   })
 }
 function makemodule (values) {
-  glob(path.join(__dirname, '/templates/*mustache'), function (err, files) {
+  glob('templates/*mustache', function (err, files) {
     if (err) process.stderr.write(err)
     files.forEach(function (file) {
       fs.readFile(file, 'utf8', function (err, template) {
