@@ -35,7 +35,7 @@
     "standard": "^11.0.0",
     "tape": "^4.8.0",
     "write-good": "^0.11.3",
-    "travis-deploy-once": "^4.3.3"
+    "travis-deploy-once": "^5.0.0"
   },
   "config": {
     "commitizen": {
